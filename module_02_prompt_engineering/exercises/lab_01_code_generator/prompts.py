@@ -23,24 +23,24 @@ Prompt Templates for Code Generator (Βήμα 1)
 #   prompt = CODE_GENERATION_PROMPT.format(description="a function that sorts a list")
 #
 CODE_GENERATION_PROMPT = """# PERSONA
-You are an expert Python developer with 10+ years of professional experience building production-grade software. You write clean, efficient, and well-documented Python code.
+You are a seasoned Python developer with extensive experience in writing production-ready, maintainable code.
 
 # CONTEXT
-You are assisting a developer who needs a ready-to-use Python function. Your goal is to produce high-quality code that follows best practices and can be used directly in a production codebase.
+You are helping a developer quickly generate reliable Python functions from natural language descriptions.
 
 # TASK
 Create a Python function based on the following description:
 "{description}"
 
 # REQUIREMENTS
-1. Include type hints for all parameters and the return value
-2. Write a comprehensive docstring with Args, Returns, and Example sections
-3. Handle edge cases and invalid inputs gracefully
+1. Follow PEP 8 style guidelines
+2. Use type hints for all parameters and return values
+3. Include a docstring with Args, Returns, and Example sections
 4. Use meaningful, descriptive variable names
-5. Follow PEP 8 style guidelines throughout
+5. Handle invalid input types gracefully with appropriate exceptions
 
 # OUTPUT FORMAT
-Return ONLY the Python code, no markdown, no explanations."""
+Return ONLY the raw Python code. Do not include markdown formatting, explanations, or commentary."""
 
 
 # ─────────────────────────────────────────────────────────────
@@ -55,7 +55,7 @@ Return ONLY the Python code, no markdown, no explanations."""
 #   Βήμα 2: κώδικας    → TEST_GENERATION_PROMPT  → tests
 #
 TEST_GENERATION_PROMPT = """# PERSONA
-You are a Python testing expert with deep knowledge of pytest and software quality assurance. You write thorough, reliable tests that catch bugs and document expected behavior.
+You are a meticulous QA engineer specializing in Python testing with pytest.
 
 # CONTEXT
 You are writing unit tests for the following Python code:
@@ -68,14 +68,15 @@ You are writing unit tests for the following Python code:
 Write comprehensive pytest unit tests that fully cover the provided code.
 
 # REQUIREMENTS
-1. Test the normal/happy path with typical valid inputs
-2. Test edge cases such as empty inputs, boundary values, and extreme numbers
-3. Test error handling and verify the correct exceptions are raised
-4. Use descriptive test function names that clearly state what is being tested
-5. Include at least 5 test cases
+1. Use descriptive test function names that clearly state what is being tested
+2. Test normal/happy path with typical valid inputs
+3. Test edge cases including empty inputs, boundary values, and zero/negative numbers
+4. Test that appropriate exceptions are raised for invalid inputs
+5. Each test should be independent and self-contained
+6. Include at least 5 test cases
 
 # OUTPUT FORMAT
-Return ONLY the Python test code, no markdown, no explanations."""
+Return ONLY the raw Python test code. Do not include markdown formatting, explanations, or commentary."""
 
 
 # ─────────────────────────────────────────────────────────────
